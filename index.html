@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Display Price</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 22px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #d1d5db;
+    }
+
+    .search-box {
+      padding: 18px 15px;
+      background: white;
+    }
+
+    #search {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      margin-bottom: 15px;
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .model {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #16a34a;
+    }
+
+    .type {
+      color: #666;
+      margin: 7px 0;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 15px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📱 Mobile Display Price</h1>
+  <p>अपने मोबाइल का मॉडल डालकर Display का Price देखें</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="search"
+    placeholder="जैसे: Redmi Note 15, Realme C61..."
+    onkeyup="searchModel()"
+  >
+</div>
+
+<div class="container" id="products"></div>
+
+<footer>
+  © 2026 Mobile Display Price
+</footer>
+
+<script>
+
+  // ==========================================
+  // ⭐ यहाँ से आप बाद में MODEL और PRICE बदल सकते हैं
+  // ==========================================
+
+  const products = [
+
+    {
+      model: "Redmi Note 15",
+      type: "Display",
+      price: "₹2,500"
+    },
+
+    {
+      model: "Redmi Note 15 SE",
+      type: "Display",
+      price: "₹2,300"
+    },
+
+    {
+      model: "Realme C61",
+      type: "Display",
+      price: "₹1,800"
+    },
+
+    {
+      model: "iPhone 11",
+      type: "Display",
+      price: "₹3,500"
+    },
+
+    {
+      model: "Samsung Galaxy A15",
+      type: "Display",
+      price: "₹2,200"
+    }
+
+  ];
+
+  // ==========================================
+
+  function showProducts(list) {
+
+    const box = document.getElementById("products");
+
+    if (list.length === 0) {
+      box.innerHTML =
+        '<div class="not-found">❌ इस मॉडल का Price नहीं मिला</div>';
+      return;
+    }
+
+    box.innerHTML = list.map(item => `
+
+      <div class="card">
+
+        <div class="model">
+          📱 ${item.model}
+        </div>
+
+        <div class="type">
+          ${item.type}
+        </div>
+
+        <div class="price">
+          ${item.price}
+        </div>
+
+        <a class="whatsapp"
+           href="https://wa.me/?text=Hello%20I%20want%20${encodeURIComponent(item.model)}%20display">
+           WhatsApp पर पूछें
+        </a>
+
+      </div>
+
+    `).join("");
+  }
+
+
+  function searchModel() {
+
+    const search =
+      document.getElementById("search").value.toLowerCase();
+
+    const result = products.filter(item =>
+      item.model.toLowerCase().includes(search)
+    );
+
+    showProducts(result);
+  }
+
+
+  showProducts(products);
+
+</script>
+
+</body>
+</html>
