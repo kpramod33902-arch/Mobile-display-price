@@ -1,226 +1,285 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Display Price</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>Mobile Display Price List</title>
 
-    body {
-      margin: 0;
-      background: #f4f6f8;
-      color: #222;
-    }
+<style>
+*{
+  box-sizing:border-box;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 22px 15px;
-      text-align: center;
-    }
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f6fa;
+  color:#17202a;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
+header{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:22px 15px;
+}
 
-    header p {
-      margin: 8px 0 0;
-      color: #d1d5db;
-    }
+h1{
+  margin:0 0 8px;
+  font-size:26px;
+}
 
-    .search-box {
-      padding: 18px 15px;
-      background: white;
-    }
+.subtitle{
+  font-size:14px;
+  opacity:.85;
+}
 
-    #search {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-    }
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 15px;
-    }
+input,select{
+  width:100%;
+  padding:14px;
+  margin-bottom:10px;
+  border:1px solid #ccd5df;
+  border-radius:10px;
+  font-size:16px;
+  background:white;
+}
 
-    .card {
-      background: white;
-      margin-bottom: 15px;
-      padding: 18px;
-      border-radius: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+.count{
+  color:#667085;
+  margin:8px 0;
+  font-size:14px;
+}
 
-    .model {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.card{
+  background:white;
+  border-radius:14px;
+  padding:15px;
+  margin:10px 0;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
 
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #16a34a;
-    }
+.brand{
+  color:#667085;
+  font-size:13px;
+}
 
-    .type {
-      color: #666;
-      margin: 7px 0;
-    }
+.model{
+  font-size:19px;
+  font-weight:bold;
+  margin:6px 0 12px;
+}
 
-    .whatsapp {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 15px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+.prices{
+  display:flex;
+  gap:10px;
+}
 
-    .not-found {
-      text-align: center;
-      padding: 30px;
-      color: #777;
-    }
+.price{
+  flex:1;
+  padding:12px;
+  background:#f6f7f9;
+  border-radius:10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-    }
-  </style>
+.price b{
+  display:block;
+  font-size:19px;
+  margin-top:5px;
+}
+
+.note{
+  margin-top:20px;
+  font-size:12px;
+  color:#667085;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>📱 Mobile Display Price</h1>
-  <p>अपने मोबाइल का मॉडल डालकर Display का Price देखें</p>
+  <div class="subtitle">
+    Original & Market Display Price
+  </div>
 </header>
 
-<div class="search-box">
-  <input
-    type="text"
-    id="search"
-    placeholder="जैसे: Redmi Note 15, Realme C61..."
-    onkeyup="searchModel()"
-  >
+<div class="container">
+
+<input
+  type="search"
+  id="search"
+  placeholder="🔎 Phone model search karein..."
+>
+
+<select id="brand">
+  <option value="">All Companies</option>
+</select>
+
+<div class="count" id="count"></div>
+
+<div id="list"></div>
+
+<div class="note">
+⚠️ Display price quality, supplier aur model variant ke according change ho sakta hai.
 </div>
 
-<div class="container" id="products"></div>
-
-<footer>
-  © 2026 Mobile Display Price
-</footer>
+</div>
 
 <script>
 
-  // ==========================================
-  // ⭐ यहाँ से आप बाद में MODEL और PRICE बदल सकते हैं
-  // ==========================================
+/* =====================================
+   PHONE MODELS
+   ===================================== */
 
-  const products = [
+const phones = [
 
-    {
-      model: "Redmi Note 15",
-      type: "Display",
-      price: "₹2,500"
-    },
+/* SAMSUNG */
 
-    {
-      model: "Redmi Note 15 SE",
-      type: "Display",
-      price: "₹2,300"
-    },
+{brand:"Samsung",model:"Galaxy A06",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A07",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A14",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A15",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A16",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A17",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A24",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A25",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A26",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A34",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A35",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A36",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A54",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A55",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy A56",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy M14",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy M15",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy M16",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy M34",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy M35",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy F14",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy F15",original:1800,market:700},
+{brand:"Samsung",model:"Galaxy F16",original:1800,market:700},
 
-    {
-      model: "Realme C61",
-      type: "Display",
-      price: "₹1,800"
-    },
+/* REDMI */
 
-    {
-      model: "iPhone 11",
-      type: "Display",
-      price: "₹3,500"
-    },
+{brand:"Redmi",model:"Redmi 9",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 10",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 10A",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 10C",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 12",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 13",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 14C",original:1800,market:700},
+{brand:"Redmi",model:"Redmi 15",original:1800,market:700},
 
-    {
-      model: "Samsung Galaxy A15",
-      type: "Display",
-      price: "₹2,200"
-    }
+{brand:"Redmi",model:"Redmi Note 10",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 10S",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 11",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 11S",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 12",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 12 5G",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 13",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 13 5G",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 14",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 14 5G",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 15",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 15 5G",original:1800,market:700},
+{brand:"Redmi",model:"Redmi Note 15 SE",original:1800,market:700},
 
-  ];
+/* POCO */
 
-  // ==========================================
+{brand:"POCO",model:"POCO C31",original:1800,market:700},
+{brand:"POCO",model:"POCO C40",original:1800,market:700},
+{brand:"POCO",model:"POCO C50",original:1800,market:700},
+{brand:"POCO",model:"POCO C51",original:1800,market:700},
+{brand:"POCO",model:"POCO C55",original:1800,market:700},
+{brand:"POCO",model:"POCO C61",original:1800,market:700},
+{brand:"POCO",model:"POCO C65",original:1800,market:700},
+{brand:"POCO",model:"POCO C71",original:1800,market:700},
+{brand:"POCO",model:"POCO M2",original:1800,market:700},
+{brand:"POCO",model:"POCO M4 Pro",original:1800,market:700},
+{brand:"POCO",model:"POCO M5",original:1800,market:700},
+{brand:"POCO",model:"POCO M6",original:1800,market:700},
+{brand:"POCO",model:"POCO M6 Plus",original:1800,market:700},
+{brand:"POCO",model:"POCO M7",original:1800,market:700},
+{brand:"POCO",model:"POCO X3",original:1800,market:700},
+{brand:"POCO",model:"POCO X4 Pro",original:1800,market:700},
+{brand:"POCO",model:"POCO X5",original:1800,market:700},
+{brand:"POCO",model:"POCO X5 Pro",original:1800,market:700},
+{brand:"POCO",model:"POCO X6",original:1800,market:700},
+{brand:"POCO",model:"POCO X6 Pro",original:1800,market:700},
+{brand:"POCO",model:"POCO X7",original:1800,market:700},
+{brand:"POCO",model:"POCO X7 Pro",original:1800,market:700},
 
-  function showProducts(list) {
+/* REALME */
 
-    const box = document.getElementById("products");
+{brand:"Realme",model:"Realme C11",original:1800,market:700},
+{brand:"Realme",model:"Realme C12",original:1800,market:700},
+{brand:"Realme",model:"Realme C21",original:1800,market:700},
+{brand:"Realme",model:"Realme C25",original:1800,market:700},
+{brand:"Realme",model:"Realme C30",original:1800,market:700},
+{brand:"Realme",model:"Realme C31",original:1800,market:700},
+{brand:"Realme",model:"Realme C33",original:1800,market:700},
+{brand:"Realme",model:"Realme C35",original:1800,market:700},
+{brand:"Realme",model:"Realme C51",original:1800,market:700},
+{brand:"Realme",model:"Realme C53",original:1800,market:700},
+{brand:"Realme",model:"Realme C55",original:1800,market:700},
+{brand:"Realme",model:"Realme C61",original:1800,market:700},
+{brand:"Realme",model:"Realme C63",original:1800,market:700},
+{brand:"Realme",model:"Realme C65",original:1800,market:700},
+{brand:"Realme",model:"Realme C71",original:1800,market:700},
+{brand:"Realme",model:"Realme 8",original:1800,market:700},
+{brand:"Realme",model:"Realme 9",original:1800,market:700},
+{brand:"Realme",model:"Realme 10",original:1800,market:700},
+{brand:"Realme",model:"Realme 11",original:1800,market:700},
+{brand:"Realme",model:"Realme 12",original:1800,market:700},
+{brand:"Realme",model:"Realme 13",original:1800,market:700},
+{brand:"Realme",model:"Realme 14",original:1800,market:700},
+{brand:"Realme",model:"Realme 15",original:1800,market:700},
 
-    if (list.length === 0) {
-      box.innerHTML =
-        '<div class="not-found">❌ इस मॉडल का Price नहीं मिला</div>';
-      return;
-    }
+/* VIVO */
 
-    box.innerHTML = list.map(item => `
+{brand:"Vivo",model:"Vivo Y12",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y15",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y16",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y17",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y18",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y19",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y20",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y21",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y22",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y27",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y28",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y29",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y36",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y37",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y38",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y39",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y200",original:1800,market:700},
+{brand:"Vivo",model:"Vivo Y300",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V20",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V21",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V23",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V25",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V27",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V29",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V30",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V40",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V50",original:1800,market:700},
+{brand:"Vivo",model:"Vivo V60",original:1800,market:700},
 
-      <div class="card">
+/* OPPO */
 
-        <div class="model">
-          📱 ${item.model}
-        </div>
-
-        <div class="type">
-          ${item.type}
-        </div>
-
-        <div class="price">
-          ${item.price}
-        </div>
-
-        <a class="whatsapp"
-           href="https://wa.me/?text=Hello%20I%20want%20${encodeURIComponent(item.model)}%20display">
-           WhatsApp पर पूछें
-        </a>
-
-      </div>
-
-    `).join("");
-  }
-
-
-  function searchModel() {
-
-    const search =
-      document.getElementById("search").value.toLowerCase();
-
-    const result = products.filter(item =>
-      item.model.toLowerCase().includes(search)
-    );
-
-    showProducts(result);
-  }
-
-
-  showProducts(products);
-
-</script>
-
-</body>
-</html>
+{brand:"OPPO",model:"OPPO A15",original:1800,market:700},
+{brand:"OPPO",model:"OPPO A16",original:1800,market:700},
+{brand:"OPPO",model:"OPPO A17",original:1800,market:700},
+{brand:"OPPO",model:"OPPO A18",original:1800,market:700},
+{brand:"OPPO",model:"OPPO A31",original:1800,market:700},
+{brand:"OPPO",model:"OPPO A38",original:1800,market:700},
+{
