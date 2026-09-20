@@ -2,108 +2,184 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mobile Display Price List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shivam Mobile Repairing Centre</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
 body{
- margin:0;
- background:#f4f7fb;
- font-family:Arial,sans-serif;
- color:#18212b
+  background:#f3f4f6;
+  color:#111827;
 }
+
 header{
- background:linear-gradient(135deg,#073b8c,#1683e8);
- color:white;
- text-align:center;
- padding:22px 12px
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
 }
-h1{margin:0 0 6px;font-size:25px}
-header p{margin:0;font-size:14px}
+
+header h1{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+header p{
+  font-size:14px;
+}
 
 .container{
- max-width:1100px;
- margin:auto;
- padding:14px
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
 }
-.panel{
- background:white;
- border-radius:14px;
- padding:14px;
- box-shadow:0 2px 10px #0001;
- margin-bottom:14px
+
+.contact{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:18px;
 }
-input,select{
- width:100%;
- padding:13px;
- border:1px solid #ccd5df;
- border-radius:9px;
- font-size:15px;
- margin-bottom:10px
+
+.contact a{
+  text-decoration:none;
+  color:white;
+  text-align:center;
+  padding:14px 8px;
+  border-radius:9px;
+  font-weight:bold;
 }
-.stats{
- display:flex;
- gap:8px;
- flex-wrap:wrap
+
+.call{
+  background:#2563eb;
 }
-.badge{
- background:#e8f1ff;
- color:#064da0;
- padding:7px 10px;
- border-radius:20px;
- font-weight:bold;
- font-size:13px
+
+.whatsapp{
+  background:#16a34a;
 }
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
- gap:12px
+
+.instagram{
+  background:#c026d3;
 }
+
+.search{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  box-shadow:0 2px 8px #0001;
+}
+
+.search input{
+  width:100%;
+  padding:15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+  outline:none;
+}
+
+.info{
+  background:white;
+  padding:12px;
+  border-radius:9px;
+  margin-bottom:15px;
+  text-align:center;
+  color:#555;
+}
+
 .card{
- background:white;
- border-radius:14px;
- padding:14px;
- box-shadow:0 2px 9px #0001;
- border-left:5px solid #1683e8
+  background:white;
+  padding:17px;
+  margin-bottom:12px;
+  border-radius:12px;
+  box-shadow:0 2px 8px #0001;
 }
+
+.card h3{
+  margin-bottom:12px;
+  font-size:18px;
+}
+
 .brand{
- font-size:12px;
- color:#1683e8;
- font-weight:bold;
- text-transform:uppercase
+  color:#2563eb;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:5px;
 }
-.model{
- font-size:18px;
- font-weight:bold;
- margin:5px 0 12px
+
+.prices{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
-.line{
- display:flex;
- justify-content:space-between;
- border-top:1px solid #eee;
- padding-top:8px;
- margin-top:8px
+
+.price{
+  padding:10px;
+  border-radius:7px;
+  font-weight:bold;
 }
+
 .original{
- color:#168038;
- font-weight:bold
+  background:#e0f2fe;
+  color:#0369a1;
 }
+
 .market{
- color:#e65100;
- font-weight:bold
+  background:#dcfce7;
+  color:#15803d;
 }
-.empty{
- background:white;
- border-radius:14px;
- padding:30px;
- text-align:center
+
+.ask{
+  display:block;
+  background:#16a34a;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  padding:12px;
+  margin-top:12px;
+  border-radius:8px;
+  font-weight:bold;
 }
+
+#notFound{
+  display:none;
+  background:white;
+  text-align:center;
+  padding:25px;
+  border-radius:10px;
+}
+
 footer{
- text-align:center;
- color:#666;
- font-size:12px;
- padding:25px
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:22px;
+  margin-top:20px;
+  line-height:1.8;
+}
+
+@media(max-width:600px){
+
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  header h1{
+    font-size:21px;
+  }
+
+  .prices{
+    flex-direction:column;
+  }
+
 }
 </style>
 </head>
@@ -111,529 +187,405 @@ footer{
 <body>
 
 <header>
-<h1>📱 Mobile Display Price List</h1>
-<p>Model खोजें • Company चुनें • Original / Market Price देखें</p>
+
+<h1>📱 Shivam Mobile Repairing Centre</h1>
+
+<p>Mobile Display Price • Hathiyagrah, Gonda</p>
+
 </header>
 
 <div class="container">
 
-<div class="panel">
+<!-- CONTACT BUTTONS -->
+
+<div class="contact">
+
+<a class="call" href="tel:9026145969">
+📞 Call करें
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/919026145969"
+target="_blank">
+💬 WhatsApp पर पूछें
+</a>
+
+<a class="instagram"
+href="https://www.instagram.com/pra_mod_s43/"
+target="_blank">
+📸 Instagram पर पूछें
+</a>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="search">
 
 <input
- id="search"
- placeholder="🔎 Model खोजें — जैसे Moto G54, Redmi Note 13, iPhone 13"
->
+type="text"
+id="search"
+placeholder="🔍 Mobile model खोजें... जैसे Samsung A56"
+oninput="searchPhone()">
 
-<select id="brand">
-<option value="">सभी कंपनियां</option>
-</select>
+</div>
 
-<div class="stats">
-<span class="badge" id="modelCount"></span>
-<span class="badge" id="brandCount"></span>
+
+<div class="info">
+
+📱 <b id="total">0</b> Mobile Models उपलब्ध
+
+</div>
+
+
+<!-- PHONE LIST -->
+
+<div id="phoneList"></div>
+
+
+<div id="notFound">
+
+❌ यह mobile model अभी list में नहीं मिला।<br><br>
+
+WhatsApp पर model पूछने के लिए नीचे क्लिक करें।
+
+<br><br>
+
+<a class="ask"
+href="https://wa.me/919026145969"
+target="_blank">
+
+💬 WhatsApp पर पूछें
+
+</a>
+
 </div>
 
 </div>
 
-<div id="list" class="grid"></div>
-
-</div>
 
 <footer>
-Price अपनी दुकान के अनुसार बदल सकते हैं।
+
+📞 9026145969
+
+<br>
+
+📸 Instagram: pra_mod_s43
+
+<br>
+
+📍 Hathiyagrah, Gonda
+
+<br>
+
+© 2026 Shivam Mobile Repairing Centre
+
 </footer>
 
 
 <script>
 
-/* =====================================================
-   📱 MODEL + PRICE LIST
+/*
+==================================================
+PHONE DATABASE
+==================================================
 
-   FORMAT:
-   ["Company","Model",Original Price,Market Price]
+नया mobile जोड़ने के लिए इसी format में लिखें:
 
-   उदाहरण:
-   ["Redmi","Redmi Note 13",2000,800]
+{
+brand:"Samsung",
+model:"Galaxy A57 5G",
+original:2000,
+market:900
+},
 
-   नया मोबाइल जोड़ने के लिए नीचे इसी तरह एक लाइन जोड़ें।
-   ===================================================== */
+==================================================
+*/
+
 
 const phones = [
 
-/* SAMSUNG */
-["Samsung","Galaxy A04",1800,700],
-["Samsung","Galaxy A04s",1800,700],
-["Samsung","Galaxy A05",1800,700],
-["Samsung","Galaxy A05s",1900,750],
-["Samsung","Galaxy A06",1900,750],
-["Samsung","Galaxy A07",2000,800],
-["Samsung","Galaxy A12",1900,750],
-["Samsung","Galaxy A13",1900,750],
-["Samsung","Galaxy A14",1900,750],
-["Samsung","Galaxy A15",2000,800],
-["Samsung","Galaxy A16",2000,800],
-["Samsung","Galaxy A17",2000,800],
-["Samsung","Galaxy A22",1900,750],
-["Samsung","Galaxy A23",1900,750],
-["Samsung","Galaxy A24",2000,800],
-["Samsung","Galaxy A25 5G",2000,800],
-["Samsung","Galaxy A32",1900,750],
-["Samsung","Galaxy A33 5G",2000,800],
-["Samsung","Galaxy A34 5G",2000,800],
-["Samsung","Galaxy A35 5G",2000,800],
-["Samsung","Galaxy A36 5G",2000,800],
-["Samsung","Galaxy A50",1800,700],
-["Samsung","Galaxy A51",1900,750],
-["Samsung","Galaxy A52",2000,800],
-["Samsung","Galaxy A53 5G",2000,800],
-["Samsung","Galaxy A54 5G",2000,800],
-["Samsung","Galaxy A55 5G",2000,800],
-["Samsung","Galaxy M04",1800,700],
-["Samsung","Galaxy M12",1900,750],
-["Samsung","Galaxy M13",1900,750],
-["Samsung","Galaxy M14 5G",2000,800],
-["Samsung","Galaxy M15 5G",2000,800],
-["Samsung","Galaxy M32",1900,750],
-["Samsung","Galaxy M33 5G",2000,800],
-["Samsung","Galaxy M34 5G",2000,800],
-["Samsung","Galaxy M35 5G",2000,800],
-["Samsung","Galaxy F04",1800,700],
-["Samsung","Galaxy F13",1900,750],
-["Samsung","Galaxy F14 5G",2000,800],
-["Samsung","Galaxy F15 5G",2000,800],
+/* ================= SAMSUNG ================= */
 
-/* REDMI */
-["Redmi","Redmi 9",1800,700],
-["Redmi","Redmi 9 Power",1900,750],
-["Redmi","Redmi 10",1900,750],
-["Redmi","Redmi 10 Prime",1900,750],
-["Redmi","Redmi 10 Power",1900,750],
-["Redmi","Redmi 12",1900,750],
-["Redmi","Redmi 12 5G",2000,800],
-["Redmi","Redmi 13C",1900,750],
-["Redmi","Redmi 13C 5G",2000,800],
-["Redmi","Redmi 14C",2000,800],
-["Redmi","Redmi 14C 5G",2000,800],
-["Redmi","Redmi Note 9",1900,750],
-["Redmi","Redmi Note 9 Pro",2000,800],
-["Redmi","Redmi Note 10",1900,750],
-["Redmi","Redmi Note 10 Pro",2000,800],
-["Redmi","Redmi Note 10S",2000,800],
-["Redmi","Redmi Note 11",1900,750],
-["Redmi","Redmi Note 11 Pro",2000,800],
-["Redmi","Redmi Note 11S",2000,800],
-["Redmi","Redmi Note 12",1900,750],
-["Redmi","Redmi Note 12 5G",2000,800],
-["Redmi","Redmi Note 12 Pro",2000,800],
-["Redmi","Redmi Note 12 Pro+ 5G",2000,800],
-["Redmi","Redmi Note 13",2000,800],
-["Redmi","Redmi Note 13 5G",2000,800],
-["Redmi","Redmi Note 13 Pro",2000,800],
-["Redmi","Redmi Note 13 Pro+ 5G",2000,800],
-["Redmi","Redmi Note 14",2000,800],
-["Redmi","Redmi Note 14 5G",2000,800],
-["Redmi","Redmi Note 14 Pro",2000,800],
-["Redmi","Redmi Note 15",2000,800],
-["Redmi","Redmi Note 15 5G",2000,800],
-["Redmi","Redmi Note 15 SE",2000,800],
-["Redmi","Redmi Note 15 Pro",2000,800],
+{brand:"Samsung",model:"Galaxy S26",original:2000,market:900},
+{brand:"Samsung",model:"Galaxy S26 Plus",original:2200,market:1000},
+{brand:"Samsung",model:"Galaxy S26 Ultra",original:2500,market:1200},
+{brand:"Samsung",model:"Galaxy S26 FE",original:2000,market:900},
+{brand:"Samsung",model:"Galaxy A57 5G",original:1900,market:800},
+{brand:"Samsung",model:"Galaxy A37 5G",original:1800,market:750},
+{brand:"Samsung",model:"Galaxy A27 5G",original:1700,market:700},
+{brand:"Samsung",model:"Galaxy M17 5G",original:1700,market:700},
+{brand:"Samsung",model:"Galaxy M37 5G",original:1800,market:750},
+{brand:"Samsung",model:"Galaxy M47 5G",original:1900,market:800},
+{brand:"Samsung",model:"Galaxy Z Fold 8",original:3500,market:1800},
+{brand:"Samsung",model:"Galaxy Z Flip 8",original:3000,market:1500},
 
-/* POCO */
-["POCO","POCO C31",1800,700],
-["POCO","POCO C3",1800,700],
-["POCO","POCO C40",1900,750],
-["POCO","POCO C50",1900,750],
-["POCO","POCO C51",1900,750],
-["POCO","POCO C55",1900,750],
-["POCO","POCO C61",1900,750],
-["POCO","POCO C65",1900,750],
-["POCO","POCO C71",2000,800],
-["POCO","POCO M2",1900,750],
-["POCO","POCO M2 Pro",2000,800],
-["POCO","POCO M3",1900,750],
-["POCO","POCO M4 Pro",2000,800],
-["POCO","POCO M5",1900,750],
-["POCO","POCO M6",2000,800],
-["POCO","POCO M6 Pro",2000,800],
-["POCO","POCO M7",2000,800],
-["POCO","POCO X3",2000,800],
-["POCO","POCO X3 Pro",2000,800],
-["POCO","POCO X4 Pro 5G",2000,800],
-["POCO","POCO X5 5G",2000,800],
-["POCO","POCO X6 5G",2000,800],
-["POCO","POCO X6 Pro 5G",2000,800],
-["POCO","POCO X7 5G",2000,800],
-["POCO","POCO X7 Pro 5G",2000,800],
-["POCO","POCO F4",2000,800],
-["POCO","POCO F5",2000,800],
-["POCO","POCO F6",2000,800],
 
-/* REALME */
-["Realme","C11",1800,700],
-["Realme","C12",1800,700],
-["Realme","C15",1800,700],
-["Realme","C20",1800,700],
-["Realme","C21",1800,700],
-["Realme","C25",1900,750],
-["Realme","C25Y",1900,750],
-["Realme","C30",1900,750],
-["Realme","C31",1900,750],
-["Realme","C33",1900,750],
-["Realme","C35",1900,750],
-["Realme","C51",1900,750],
-["Realme","C53",1900,750],
-["Realme","C55",2000,800],
-["Realme","C61",1900,750],
-["Realme","C63",2000,800],
-["Realme","C65",2000,800],
-["Realme","C67",2000,800],
-["Realme","C71",2000,800],
-["Realme","Narzo 20",1900,750],
-["Realme","Narzo 30",1900,750],
-["Realme","Narzo 50",2000,800],
-["Realme","Narzo 50A",1900,750],
-["Realme","Narzo 60 5G",2000,800],
-["Realme","Narzo 70 5G",2000,800],
-["Realme","8",1900,750],
-["Realme","9 5G",2000,800],
-["Realme","10",2000,800],
-["Realme","11 5G",2000,800],
-["Realme","12 5G",2000,800],
-["Realme","13 5G",2000,800],
+/* ================= APPLE ================= */
 
-/* VIVO */
-["Vivo","Y1s",1800,700],
-["Vivo","Y12",1800,700],
-["Vivo","Y15",1900,750],
-["Vivo","Y16",1900,750],
-["Vivo","Y17",1900,750],
-["Vivo","Y18",1900,750],
-["Vivo","Y19",1900,750],
-["Vivo","Y20",1900,750],
-["Vivo","Y21",1900,750],
-["Vivo","Y22",1900,750],
-["Vivo","Y27",2000,800],
-["Vivo","Y28",2000,800],
-["Vivo","Y29",2000,800],
-["Vivo","Y31",2000,800],
-["Vivo","Y35",2000,800],
-["Vivo","Y36",2000,800],
-["Vivo","Y56 5G",2000,800],
-["Vivo","Y72 5G",2000,800],
-["Vivo","Y75",2000,800],
-["Vivo","Y100",2000,800],
-["Vivo","Y200 5G",2000,800],
-["Vivo","T1 5G",2000,800],
-["Vivo","T2 5G",2000,800],
-["Vivo","T3 5G",2000,800],
-["Vivo","V20",2000,800],
-["Vivo","V21",2000,800],
-["Vivo","V23",2000,800],
-["Vivo","V25",2000,800],
-["Vivo","V27",2000,800],
-["Vivo","V29",2000,800],
-["Vivo","V30",2000,800],
-["Vivo","V40",2000,800],
+{brand:"Apple",model:"iPhone 18",original:5000,market:2500},
+{brand:"Apple",model:"iPhone 18 Air",original:5500,market:2800},
+{brand:"Apple",model:"iPhone 18 Pro",original:6000,market:3000},
+{brand:"Apple",model:"iPhone 18 Pro Max",original:6500,market:3500},
+{brand:"Apple",model:"iPhone 17",original:4500,market:2200},
+{brand:"Apple",model:"iPhone 17 Air",original:5000,market:2500},
+{brand:"Apple",model:"iPhone 17 Pro",original:5500,market:2800},
+{brand:"Apple",model:"iPhone 17 Pro Max",original:6000,market:3000},
 
-/* OPPO */
-["Oppo","A12",1800,700],
-["Oppo","A15",1800,700],
-["Oppo","A16",1900,750],
-["Oppo","A17",1900,750],
-["Oppo","A18",1900,750],
-["Oppo","A31",1900,750],
-["Oppo","A38",1900,750],
-["Oppo","A3 Pro 5G",2000,800],
-["Oppo","A5 Pro 5G",2000,800],
-["Oppo","A54",1900,750],
-["Oppo","A55",1900,750],
-["Oppo","A57",1900,750],
-["Oppo","A58",2000,800],
-["Oppo","A59 5G",2000,800],
-["Oppo","A74 5G",2000,800],
-["Oppo","A76",1900,750],
-["Oppo","A78",2000,800],
-["Oppo","A79 5G",2000,800],
-["Oppo","A96",2000,800],
-["Oppo","F17",1900,750],
-["Oppo","F19",1900,750],
-["Oppo","F19 Pro",2000,800],
-["Oppo","F21 Pro",2000,800],
-["Oppo","F23 5G",2000,800],
-["Oppo","F25 Pro 5G",2000,800],
-["Oppo","F27 5G",2000,800],
 
-/* ONEPLUS */
-["OnePlus","Nord N10",1900,750],
-["OnePlus","Nord N20 SE",2000,800],
-["OnePlus","Nord CE",2000,800],
-["OnePlus","Nord CE 2",2000,800],
-["OnePlus","Nord CE 3 Lite",2000,800],
-["OnePlus","Nord CE 4",2000,800],
-["OnePlus","Nord CE 4 Lite",2000,800],
-["OnePlus","Nord 2",2000,800],
-["OnePlus","Nord 3",2000,800],
-["OnePlus","Nord 4",2000,800],
-["OnePlus","6",1900,750],
-["OnePlus","7",1900,750],
-["OnePlus","8",2000,800],
-["OnePlus","9",2000,800],
-["OnePlus","10R",2000,800],
-["OnePlus","11R",2000,800],
-["OnePlus","12R",2000,800],
+/* ================= MOTOROLA ================= */
 
-/* MOTOROLA */
-["Motorola","Moto E7 Power",1800,700],
-["Motorola","Moto E13",1900,750],
-["Motorola","Moto E22",1900,750],
-["Motorola","Moto E32",1900,750],
-["Motorola","Moto E40",1900,750],
-["Motorola","Moto G10",1900,750],
-["Motorola","Moto G20",1900,750],
-["Motorola","Moto G22",1900,750],
-["Motorola","Moto G31",1900,750],
-["Motorola","Moto G32",1900,750],
-["Motorola","Moto G40 Fusion",2000,800],
-["Motorola","Moto G42",2000,800],
-["Motorola","Moto G52",2000,800],
-["Motorola","Moto G53 5G",2000,800],
-["Motorola","Moto G54 5G",2000,800],
-["Motorola","Moto G64 5G",2000,800],
-["Motorola","Moto G73 5G",2000,800],
-["Motorola","Moto G84 5G",2000,800],
-["Motorola","Moto G85 5G",2000,800],
-["Motorola","Moto G86 5G",2000,800],
-["Motorola","Edge 20",2000,800],
-["Motorola","Edge 30",2000,800],
-["Motorola","Edge 40",2000,800],
-["Motorola","Edge 50 Fusion",2000,800],
-["Motorola","Edge 50 Pro",2000,800],
+{brand:"Motorola",model:"Moto G54 5G",original:2000,market:800},
+{brand:"Motorola",model:"Moto G64 5G",original:2000,market:850},
+{brand:"Motorola",model:"Moto G85 5G",original:2000,market:900},
+{brand:"Motorola",model:"Moto G86 5G",original:2100,market:900},
+{brand:"Motorola",model:"Moto G96 5G",original:2200,market:950},
+{brand:"Motorola",model:"Edge 60 Fusion",original:2300,market:1000},
+{brand:"Motorola",model:"Edge 60 Pro",original:2500,market:1200},
+{brand:"Motorola",model:"Razr 60",original:3000,market:1500},
+{brand:"Motorola",model:"Razr 60 Ultra",original:3500,market:1800},
 
-/* IQOO */
-["iQOO","Z3 5G",2000,800],
-["iQOO","Z5 5G",2000,800],
-["iQOO","Z6 5G",2000,800],
-["iQOO","Z7 5G",2000,800],
-["iQOO","Z9 5G",2000,800],
-["iQOO","Z9x 5G",2000,800],
-["iQOO","Z10 5G",2000,800],
-["iQOO","Neo 6",2000,800],
-["iQOO","Neo 7",2000,800],
-["iQOO","Neo 9 Pro",2000,800],
-["iQOO","Neo 10",2000,800],
 
-/* INFINIX */
-["Infinix","Smart 5",1800,700],
-["Infinix","Smart 6",1800,700],
-["Infinix","Smart 7",1900,750],
-["Infinix","Smart 8",1900,750],
-["Infinix","Smart 9",1900,750],
-["Infinix","Hot 10",1900,750],
-["Infinix","Hot 11",1900,750],
-["Infinix","Hot 12",1900,750],
-["Infinix","Hot 20",1900,750],
-["Infinix","Hot 30",1900,750],
-["Infinix","Hot 40",2000,800],
-["Infinix","Hot 50",2000,800],
-["Infinix","Note 10",1900,750],
-["Infinix","Note 12",1900,750],
-["Infinix","Note 30",2000,800],
-["Infinix","Note 40",2000,800],
+/* ================= REDMI ================= */
 
-/* TECNO */
-["Tecno","Spark 6",1800,700],
-["Tecno","Spark 7",1800,700],
-["Tecno","Spark 8",1900,750],
-["Tecno","Spark 9",1900,750],
-["Tecno","Spark 10",1900,750],
-["Tecno","Spark 20",1900,750],
-["Tecno","Spark 30",2000,800],
-["Tecno","Camon 15",1900,750],
-["Tecno","Camon 17",1900,750],
-["Tecno","Camon 18",1900,750],
-["Tecno","Camon 19",2000,800],
-["Tecno","Camon 20",2000,800],
-["Tecno","Camon 30",2000,800],
-["Tecno","Pova 2",1900,750],
-["Tecno","Pova 3",1900,750],
-["Tecno","Pova 5",2000,800],
-["Tecno","Pova 6",2000,800],
+{brand:"Redmi",model:"Redmi Note 15",original:2000,market:800},
+{brand:"Redmi",model:"Redmi Note 15 SE",original:2000,market:850},
+{brand:"Redmi",model:"Redmi Note 15 Pro",original:2200,market:900},
+{brand:"Redmi",model:"Redmi Note 15 Pro Plus",original:2400,market:1000},
+{brand:"Redmi",model:"Redmi Note 14",original:1900,market:750},
+{brand:"Redmi",model:"Redmi Note 14 Pro",original:2200,market:900},
+{brand:"Redmi",model:"Redmi Note 14 Pro Plus",original:2400,market:1000},
 
-/* LAVA */
-["Lava","Z2",1800,700],
-["Lava","Z3",1800,700],
-["Lava","Z4",1800,700],
-["Lava","Z6",1900,750],
-["Lava","Blaze",1900,750],
-["Lava","Blaze 2",1900,750],
-["Lava","Blaze 5G",2000,800],
-["Lava","Blaze 2 5G",2000,800],
-["Lava","Storm 5G",2000,800],
-["Lava","Agni 2 5G",2000,800],
-["Lava","Agni 3",2000,800],
 
-/* NOKIA */
-["Nokia","2.3",1800,700],
-["Nokia","3.4",1800,700],
-["Nokia","5.3",1900,750],
-["Nokia","5.4",1900,750],
-["Nokia","6.1 Plus",1900,750],
-["Nokia","7.2",1900,750],
-["Nokia","G10",1900,750],
-["Nokia","G11",1900,750],
-["Nokia","G20",1900,750],
-["Nokia","G21",1900,750],
-["Nokia","G42 5G",2000,800],
+/* ================= XIAOMI ================= */
 
-/* GOOGLE PIXEL */
-["Google","Pixel 4a",2000,800],
-["Google","Pixel 5",2000,800],
-["Google","Pixel 6a",2000,800],
-["Google","Pixel 6",2000,800],
-["Google","Pixel 6 Pro",2000,800],
-["Google","Pixel 7a",2000,800],
-["Google","Pixel 7",2000,800],
-["Google","Pixel 8a",2000,800],
-["Google","Pixel 8",2000,800],
-["Google","Pixel 8 Pro",2000,800],
-["Google","Pixel 9",2000,800],
-["Google","Pixel 9a",2000,800],
+{brand:"Xiaomi",model:"Xiaomi 15",original:2800,market:1300},
+{brand:"Xiaomi",model:"Xiaomi 15 Pro",original:3200,market:1500},
+{brand:"Xiaomi",model:"Xiaomi 15 Ultra",original:3500,market:1800},
+{brand:"Xiaomi",model:"Xiaomi 17",original:3000,market:1400},
 
-/* SONY */
-["Sony","Xperia 10 II",2000,800],
-["Sony","Xperia 10 III",2000,800],
-["Sony","Xperia 10 IV",2000,800],
-["Sony","Xperia 10 V",2000,800],
-["Sony","Xperia 1 II",2000,800],
-["Sony","Xperia 1 III",2000,800],
-["Sony","Xperia 1 IV",2000,800],
 
-/* ASUS */
-["Asus","ROG Phone 3",2000,800],
-["Asus","ROG Phone 5",2000,800],
-["Asus","ROG Phone 6",2000,800],
-["Asus","ROG Phone 7",2000,800],
-["Asus","Zenfone 8",2000,800],
-["Asus","Zenfone 9",2000,800],
-["Asus","Zenfone 10",2000,800],
+/* ================= VIVO ================= */
 
-/* HONOR */
-["Honor","X7",1900,750],
-["Honor","X7a",1900,750],
-["Honor","X8",1900,750],
-["Honor","X8a",1900,750],
-["Honor","X9",2000,800],
-["Honor","X9b",2000,800],
-["Honor","90 Lite",2000,800],
-["Honor","90",2000,800],
-["Honor","200 Lite",2000,800],
-["Honor","200",2000,800],
+{brand:"Vivo",model:"Vivo T5 5G",original:2200,market:900},
+{brand:"Vivo",model:"Vivo V50",original:2300,market:950},
+{brand:"Vivo",model:"Vivo V50e",original:2200,market:900},
+{brand:"Vivo",model:"Vivo V60",original:2400,market:1000},
+{brand:"Vivo",model:"Vivo V60e",original:2200,market:900},
+{brand:"Vivo",model:"Vivo X200",original:2800,market:1300},
+{brand:"Vivo",model:"Vivo X200 Pro",original:3200,market:1500},
+{brand:"Vivo",model:"Vivo X300",original:3000,market:1400},
+{brand:"Vivo",model:"Vivo X300 Pro",original:3500,market:1700},
 
-/* NOTHING */
-["Nothing","Phone 1",2000,800],
-["Nothing","Phone 2",2000,800],
-["Nothing","Phone 2a",2000,800],
-["Nothing","Phone 2a Plus",2000,800],
-["Nothing","Phone 3a",2000,800],
-["Nothing","Phone 3a Pro",2000,800],
 
-/* APPLE */
-["Apple","iPhone 8",2500,1200],
-["Apple","iPhone X",2500,1200],
-["Apple","iPhone XR",2500,1200],
-["Apple","iPhone XS",2500,1200],
-["Apple","iPhone 11",2500,1200],
-["Apple","iPhone 11 Pro",2500,1200],
-["Apple","iPhone 11 Pro Max",2500,1200],
-["Apple","iPhone 12",2500,1200],
-["Apple","iPhone 12 mini",2500,1200],
-["Apple","iPhone 12 Pro",2500,1200],
-["Apple","iPhone 12 Pro Max",2500,1200],
-["Apple","iPhone 13",2500,1200],
-["Apple","iPhone 13 mini",2500,1200],
-["Apple","iPhone 13 Pro",2500,1200],
-["Apple","iPhone 13 Pro Max",2500,1200],
-["Apple","iPhone 14",2500,1200],
-["Apple","iPhone 14 Plus",2500,1200],
-["Apple","iPhone 14 Pro",2500,1200],
-["Apple","iPhone 14 Pro Max",2500,1200],
-["Apple","iPhone 15",2500,1200],
-["Apple","iPhone 15 Plus",2500,1200],
-["Apple","iPhone 15 Pro",2500,1200],
-["Apple","iPhone 15 Pro Max",2500,1200],
-["Apple","iPhone 16",2500,1200],
-["Apple","iPhone 16 Plus",2500,1200],
-["Apple","iPhone 16 Pro",2500,1200],
-["Apple","iPhone 16 Pro Max",2500,1200]
+/* ================= OPPO ================= */
+
+{brand:"Oppo",model:"Oppo Reno 14",original:2200,market:900},
+{brand:"Oppo",model:"Oppo Reno 14 Pro",original:2500,market:1100},
+{brand:"Oppo",model:"Oppo Reno 15",original:2300,market:950},
+{brand:"Oppo",model:"Oppo Reno 15 Pro",original:2600,market:1200},
+{brand:"Oppo",model:"Oppo Find X9",original:2800,market:1300},
+{brand:"Oppo",model:"Oppo Find X9 Pro",original:3200,market:1500},
+
+
+/* ================= REALME ================= */
+
+{brand:"Realme",model:"Realme 14 5G",original:1900,market:750},
+{brand:"Realme",model:"Realme 14 Pro",original:2100,market:850},
+{brand:"Realme",model:"Realme 14 Pro Plus",original:2300,market:950},
+{brand:"Realme",model:"Realme P4 5G",original:1900,market:750},
+{brand:"Realme",model:"Realme P4 Pro",original:2100,market:850},
+{brand:"Realme",model:"Realme 16",original:2100,market:850},
+{brand:"Realme",model:"Realme 16 Pro",original:2300,market:950},
+
+
+/* ================= ONEPLUS ================= */
+
+{brand:"OnePlus",model:"OnePlus 13",original:2800,market:1300},
+{brand:"OnePlus",model:"OnePlus 13R",original:2500,market:1100},
+{brand:"OnePlus",model:"OnePlus 15",original:2800,market:1300},
+{brand:"OnePlus",model:"OnePlus Nord 5",original:2100,market:850},
+{brand:"OnePlus",model:"OnePlus Nord CE5",original:1900,market:750},
+
+
+/* ================= POCO ================= */
+
+{brand:"POCO",model:"POCO F7",original:2200,market:900},
+{brand:"POCO",model:"POCO F7 Pro",original:2500,market:1100},
+{brand:"POCO",model:"POCO X7",original:2000,market:800},
+{brand:"POCO",model:"POCO X8",original:2200,market:900},
+{brand:"POCO",model:"POCO M7",original:1800,market:700},
+
+
+/* ================= IQOO ================= */
+
+{brand:"iQOO",model:"iQOO Neo 10",original:2300,market:950},
+{brand:"iQOO",model:"iQOO 13",original:2800,market:1300},
+{brand:"iQOO",model:"iQOO 15",original:3000,market:1400},
+{brand:"iQOO",model:"iQOO Z10",original:2000,market:800},
+{brand:"iQOO",model:"iQOO Z11",original:2100,market:850},
+
+
+/* ================= GOOGLE ================= */
+
+{brand:"Google",model:"Pixel 9",original:3000,market:1400},
+{brand:"Google",model:"Pixel 9 Pro",original:3500,market:1700},
+{brand:"Google",model:"Pixel 10",original:3200,market:1500},
+{brand:"Google",model:"Pixel 10 Pro",original:3500,market:1700},
+{brand:"Google",model:"Pixel 11",original:3500,market:1700},
+
+
+/* ================= INFINIX ================= */
+
+{brand:"Infinix",model:"Infinix Note 50",original:1800,market:700},
+{brand:"Infinix",model:"Infinix Note 50 Pro",original:2000,market:800},
+{brand:"Infinix",model:"Infinix GT 30 Pro",original:2100,market:850},
+{brand:"Infinix",model:"Infinix Hot 60",original:1700,market:650},
+
+
+/* ================= TECNO ================= */
+
+{brand:"Tecno",model:"Tecno Camon 40",original:1900,market:750},
+{brand:"Tecno",model:"Tecno Camon 40 Pro",original:2100,market:850},
+{brand:"Tecno",model:"Tecno Pova 7",original:1800,market:700},
+{brand:"Tecno",model:"Tecno Spark 40",original:1600,market:650},
+
+
+/* ================= LAVA ================= */
+
+{brand:"Lava",model:"Lava Blaze 3",original:1500,market:600},
+{brand:"Lava",model:"Lava Blaze 5G",original:1600,market:650},
+{brand:"Lava",model:"Lava Storm 5G",original:1700,market:700},
+{brand:"Lava",model:"Lava Virat V1",original:1500,market:600},
+
+
+/* ================= NOTHING ================= */
+
+{brand:"Nothing",model:"Nothing Phone 3",original:2500,market:1100},
+{brand:"Nothing",model:"Nothing Phone 3a",original:2100,market:850},
+{brand:"Nothing",model:"Nothing Phone 3a Pro",original:2300,market:950},
+
+
+/* ================= ASUS ================= */
+
+{brand:"Asus",model:"ROG Phone 9",original:3000,market:1400},
+{brand:"Asus",model:"ROG Phone 9 Pro",original:3500,market:1700},
+
+
+/* ================= SONY ================= */
+
+{brand:"Sony",model:"Xperia 1 VII",original:3500,market:1800},
+{brand:"Sony",model:"Xperia 10 VII",original:2500,market:1100}
 
 ];
 
 
-/* =====================================================
-   नीचे का CODE मत बदलना
-   ===================================================== */
+/* =========================
+   DISPLAY PHONE LIST
+========================= */
 
-const search=document.getElementById("search");
-const brand=document.getElementById("brand");
-const list=document.getElementById("list");
-const modelCount=document.getElementById("modelCount");
-const brandCount=document.getElementById("brandCount");
+function showPhones(list){
 
-const brands=[...new Set(phones.map(x=>x[0]))].sort();
+const box=document.getElementById("phoneList");
 
-brands.forEach(b=>{
- const option=document.createElement("option");
- option.value=b;
- option.textContent=b;
- brand.appendChild(option);
-});
+box.innerHTML="";
 
-function render(){
+document.getElementById("total").innerText=list.length;
 
- const q=search.value.trim().toLowerCase();
- const selected=brand.value;
+if(list.length===0){
 
- const result=phones.filter(x=>
-  (!selected || x[0]===selected) &&
-  (!q || (x[0]+" "+x[1]).toLowerCase().includes(q))
- );
+document.getElementById("notFound").style.display="block";
 
- modelCount.textContent="मॉडल: "+result.length;
- brandCount.textContent="कंपनियां: "+brands.length;
+return;
 
- if(!result.length){
-  list.innerHTML=
-  '<div class="empty">❌ मॉडल नहीं मिला। दूसरा नाम लिखकर देखें।</div>';
-  return;
- }
-
- list.innerHTML=result.map(x=>`
-
- <div class="card">
-
-  <div class="brand">${x[0]}</div>
-
-  <div class="model">${x[1]}</div>
-
-  <div class="line">
-   <span>Original Display</span>
-   <span class="original">₹${x[2]}</span>
-  </div>
-
-  <div class="line">
-   <span>Market Display</span>
-   <span class="market">₹${x[3]}</span>
-  </div>
-
- </div>
-
- `).join("");
 }
 
-search.addEventListener("input",render);
-brand.addEventListener("change",render);
+document.getElementById("notFound").style.display="none";
 
-render();
+
+list.forEach(phone=>{
+
+const message =
+"Namaste, mujhe "+phone.brand+" "+phone.model+
+" display ke price ke baare mein puchna hai.";
+
+const card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<div class="brand">
+${phone.brand}
+</div>
+
+<h3>
+📱 ${phone.model}
+</h3>
+
+<div class="prices">
+
+<div class="price original">
+Original Display: ₹${phone.original}
+</div>
+
+<div class="price market">
+Market Display: ₹${phone.market}
+</div>
+
+</div>
+
+<a class="ask"
+href="https://wa.me/919026145969?text=${encodeURIComponent(message)}"
+target="_blank">
+
+💬 WhatsApp पर इस model के बारे में पूछें
+
+</a>
+
+`;
+
+box.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   SEARCH FUNCTION
+========================= */
+
+function searchPhone(){
+
+const searchText=
+document.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+const result=phones.filter(phone=>{
+
+const fullName=
+phone.brand+" "+phone.model;
+
+return fullName
+.toLowerCase()
+.includes(searchText);
+
+});
+
+showPhones(result);
+
+}
+
+
+/* =========================
+   FIRST LOAD
+========================= */
+
+showPhones(phones);
 
 </script>
 
